@@ -1,6 +1,14 @@
-# sort-outlook-calendars
+# outlook-owa-improvements
 
-The Outlook Calendar web app does not support sorting of the list of calendars on the left of the page. They are simply rendered in the order that they had been created/subscribed to.
+Firefox extension that implements a number of usability improvements in the Outlook Calendar web app.
+
+## Hotkeys
+
+`t`: Jump to "Today"
+
+## Sorted calendar lists
+
+Outlook Calendar web app does not support sorting of the list of calendars on the left of the page. They are simply rendered in the order that they had been created/subscribed to.
 
 This Firefox extension sorts them alphabetically by first name.
 
@@ -8,6 +16,6 @@ This Firefox extension sorts them alphabetically by first name.
 
 ## TODO
 
-* Customize sort function
+* Customize sort function for calendar sorting
 * Chrome extension
 
