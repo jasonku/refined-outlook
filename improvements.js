@@ -47,13 +47,20 @@ observer.observe(document.body, {
 });
 
 document.onkeydown = function(evt) {
-  evt = evt || window.event;
-  if (evt.keyCode == 84) {
-    let activeElement = document.activeElement;
-    const inputs = ['input', 'select', 'button', 'textarea'];
+  let activeElement = document.activeElement;
+  const inputs = ['input', 'select', 'button', 'textarea'];
 
-    if (!(activeElement && inputs.includes(activeElement.tagName.toLowerCase()))) {
-      document.querySelector('button[name="Today"]').click();
-    }
+  if (activeElement && inputs.includes(activeElement.tagName.toLowerCase())) {
+    return;
+  }
+
+  const selectors = {
+    84: 'button[name="Today"]', // t
+  };
+
+  evt = evt || window.event;
+
+  if (selectors[evt.keyCode]) {
+    document.querySelector(selectors[evt.keyCode]).click();
   }
 };
