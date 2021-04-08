@@ -2,6 +2,8 @@
 
 Firefox extension that implements a number of usability improvements in the Outlook Calendar web app, such as Google Calendar-style hotkeys and sorted calendar lists.
 
+https://addons.mozilla.org/en-US/firefox/addon/outlook-owa-improvements/
+
 ## Hotkeys
 
 `j`: Go Forward
