@@ -6,9 +6,9 @@ https://addons.mozilla.org/en-US/firefox/addon/outlook-owa-improvements/
 
 ## Hotkeys
 
-`j`: Go Forward
-`k`: Go Back
-`t`: Jump to "Today"
+* `j`: Go forward to next date range
+* `k`: Go back to previous date range
+* `t`: Jump to "Today"
 
 ## Sorted calendar lists
 
