@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "matches": ["*://outlook.office.com/*"],
-      "js": ["./sort.js"]
+      "js": ["./improvements.js"]
     }
   ]
 }
