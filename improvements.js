@@ -55,6 +55,8 @@ document.onkeydown = function(evt) {
   }
 
   const selectors = {
+    74: '[data-icon-name="Forward"]', // j
+    75: '[data-icon-name="Back"]', // k
     84: 'button[name="Today"]', // t
   };
 

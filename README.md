@@ -1,9 +1,11 @@
 # outlook-owa-improvements
 
-Firefox extension that implements a number of usability improvements in the Outlook Calendar web app.
+Firefox extension that implements a number of usability improvements in the Outlook Calendar web app, such as Google Calendar-style hotkeys and sorted calendar lists.
 
 ## Hotkeys
 
+`j`: Go Forward
+`k`: Go Back
 `t`: Jump to "Today"
 
 ## Sorted calendar lists
