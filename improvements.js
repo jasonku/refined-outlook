@@ -48,7 +48,7 @@ observer.observe(document.body, {
 
 document.onkeydown = function(evt) {
   let activeElement = document.activeElement;
-  const inputs = ['input', 'select', 'button', 'textarea'];
+  const inputs = ['input', 'textarea'];
 
   if (activeElement && inputs.includes(activeElement.tagName.toLowerCase())) {
     return;
