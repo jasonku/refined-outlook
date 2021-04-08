@@ -45,3 +45,15 @@ observer.observe(document.body, {
   childList: true,
   subtree: true
 });
+
+document.onkeydown = function(evt) {
+  evt = evt || window.event;
+  if (evt.keyCode == 84) {
+    let activeElement = document.activeElement;
+    const inputs = ['input', 'select', 'button', 'textarea'];
+
+    if (!(activeElement && inputs.includes(activeElement.tagName.toLowerCase()))) {
+      document.querySelector('button[name="Today"]').click();
+    }
+  }
+};
