@@ -65,4 +65,28 @@ document.onkeydown = function(evt) {
   if (selectors[evt.keyCode]) {
     document.querySelector(selectors[evt.keyCode]).click();
   }
+
+  const viewSelectors = {
+    49: 'button[name="Day"]', // 1
+    50: 'button[name="Work week"]', // 2
+    51: 'button[name="Week"]', // 3
+    52: 'button[name="Month"]', // 4
+  };
+
+  console.log('hotkey: ' + evt.keyCode);
+  if (viewSelectors[evt.keyCode]) {
+    // Open view dropdown
+    for (const selector of Object.values(viewSelectors)) {
+      let node = document.querySelector(selector);
+      if (node) {
+        node.click();
+
+        setTimeout(() => {
+          document.querySelector(selectors[evt.keyCode]).click();
+        }, 1000);
+        break;
+      }
+    }
+
+  }
 };
