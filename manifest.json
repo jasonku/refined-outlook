@@ -3,7 +3,7 @@
   "name": "Outlook OWA Improvements",
   "description": "Implements a number of usability improvements in the Outlook Calendar web app",
   "homepage_url": "https://github.com/jasonku/outlook-owa-improvements",
-  "version": "1.0",
+  "version": "2.0",
   "icons": {
     "48": "icons/icon.png",
     "96": "icons/icon@2x.png"
