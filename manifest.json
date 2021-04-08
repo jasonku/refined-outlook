@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Outlook OWA Improvements",
+  "name": "Refined Outlook",
   "description": "Implements a number of usability improvements in the Outlook Calendar web app",
-  "homepage_url": "https://github.com/jasonku/outlook-owa-improvements",
+  "homepage_url": "https://github.com/jasonku/refined-outlook",
   "version": "2.0",
   "icons": {
     "48": "icons/icon.png",

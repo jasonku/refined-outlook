@@ -1,8 +1,8 @@
-# outlook-owa-improvements
+# Refined Outlook
 
 Firefox extension that implements a number of usability improvements in the Outlook Calendar web app, such as Google Calendar-style hotkeys and sorted calendar lists.
 
-https://addons.mozilla.org/en-US/firefox/addon/outlook-owa-improvements/
+https://addons.mozilla.org/en-US/firefox/addon/refined-outlook/
 
 ## Hotkeys
 
@@ -23,3 +23,6 @@ This Firefox extension sorts them alphabetically by first name.
 * Customize sort function for calendar sorting
 * Chrome extension
 
+## Credits
+
+Thanks to https://github.com/sindresorhus/refined-github for the name idea.
