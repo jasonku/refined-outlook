@@ -1,5 +1,4 @@
 const classNameForCalendarNav = '_138FTgA2Ie9lBtUfSPO3oo';
-const classNameForCalendarNavContainer = '_1NfdVH1QY1RUD8Ae_Vs8G6';
 const classNameForCalendarGroup = '_2gSeM2gSuPwpLSuXu-JTNN';
 const classNameForCalendar = '_3ekss_cnVypTPOhuHI8v5_';
 const classNameForCalendarLabel = 'zMCyxcb5betAk-qUwl3tS';
@@ -26,12 +25,18 @@ function sortCalendarGroups (calendarNav) {
   }
 }
 
+function isCalendarNavContainer (node) {
+  let children = node.children;
+  return (children[1] && children[1].getAttribute('data-skip-link-name') === 'Jump to date selection') &&
+    (children[2] && children[2].getAttribute('data-skip-link-name') === 'Jump to calendar list');
+}
+
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     if (mutation.addedNodes && mutation.addedNodes.length > 0) {
       for (let i = 0; i < mutation.addedNodes.length; i++) {
         const newNode = mutation.addedNodes[i];
-        if (newNode.classList.contains(classNameForCalendarNav) || newNode.classList.contains(classNameForCalendarNavContainer)) {
+        if (newNode.classList.contains(classNameForCalendarNav) || isCalendarNavContainer) {
           console.log('Sorting calendar lists...');
           sortCalendarGroups(newNode);
         }
