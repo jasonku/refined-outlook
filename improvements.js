@@ -50,7 +50,10 @@ document.onkeydown = function(evt) {
   let activeElement = document.activeElement;
   const inputs = ['input', 'textarea'];
 
-  if (activeElement && inputs.includes(activeElement.tagName.toLowerCase())) {
+  if (activeElement && (
+    inputs.includes(activeElement.tagName.toLowerCase())
+    || activeElement.getAttribute('role') === 'textbox')
+  ) {
     return;
   }
 
