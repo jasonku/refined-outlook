@@ -1,6 +1,6 @@
 function sortByFirstName (a, b) {
-  let aText = a.getElementsByClassName(classNameForCalendarLabel)[0].textContent;
-  let bText = b.getElementsByClassName(classNameForCalendarLabel)[0].textContent;
+  let aText = a.querySelector("button[role='option']").title
+  let bText = b.querySelector("button[role='option']").title
   return aText.localeCompare(bText);
 }
 
@@ -13,24 +13,26 @@ function sortCalendarGroup (calendarGroup) {
     .forEach((node) => {
       calendarGroup.append(node);
     });
+  console.log('Successfully sorted ' + calendarGroupTitle);
 }
 
-let sorted = false;
+let lastSorted = false;
 
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     if (mutation.addedNodes && mutation.addedNodes.length > 0) {
       for (let i = 0; i < mutation.addedNodes.length; i++) {
-        if (sorted) {
+        if ((lastSorted.valueOf() + 5 * 1000) > new Date()) {
           return;
         }
 
         let calendarGroups = document.querySelectorAll("[role='listbox']");
         if (calendarGroups.length > 0) {
           for (let i = 0; i < calendarGroups.length; i++) {
-            sortCalendarGroup(calendarGroups.item(i));
+            let calendarGroup = calendarGroups.item(i);
+            sortCalendarGroup(calendarGroup);
           }
-          sorted = true;
+          lastSorted = new Date();
         }
       }
     }
