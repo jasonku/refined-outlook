@@ -1,8 +1,3 @@
-const classNameForCalendarNav = '_138FTgA2Ie9lBtUfSPO3oo';
-const classNameForCalendarGroup = '_2gSeM2gSuPwpLSuXu-JTNN';
-const classNameForCalendar = '_3ekss_cnVypTPOhuHI8v5_';
-const classNameForCalendarLabel = 'zMCyxcb5betAk-qUwl3tS';
-
 function sortByFirstName (a, b) {
   let aText = a.getElementsByClassName(classNameForCalendarLabel)[0].textContent;
   let bText = b.getElementsByClassName(classNameForCalendarLabel)[0].textContent;
@@ -10,6 +5,9 @@ function sortByFirstName (a, b) {
 }
 
 function sortCalendarGroup (calendarGroup) {
+  let calendarGroupTitle = calendarGroup.previousSibling.querySelector("button[id^='calendar']").title;
+  console.log('Sorting calendar group: ' + calendarGroupTitle);
+
   [...calendarGroup.children]
     .sort(sortByFirstName)
     .forEach((node) => {
@@ -17,30 +15,23 @@ function sortCalendarGroup (calendarGroup) {
     });
 }
 
-function sortCalendarGroups (calendarNav) {
-  let calendarGroups = calendarNav.getElementsByClassName(classNameForCalendarGroup);
-
-  for (var i = 0; i < calendarGroups.length; i++) {
-    sortCalendarGroup(calendarGroups.item(i));
-  }
-}
-
-function isCalendarNavContainer (node) {
-  let children = node.children;
-  return (children[1] && children[1].getAttribute('data-skip-link-name') === 'Jump to date selection') &&
-    (children[2] && children[2].getAttribute('data-skip-link-name') === 'Jump to calendar list');
-}
+let sorted = false;
 
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     if (mutation.addedNodes && mutation.addedNodes.length > 0) {
       for (let i = 0; i < mutation.addedNodes.length; i++) {
-        const newNode = mutation.addedNodes[i];
-        if (newNode.classList.contains(classNameForCalendarNav) || isCalendarNavContainer) {
-          console.log('Sorting calendar lists...');
-          sortCalendarGroups(newNode);
+        if (sorted) {
+          return;
         }
-        replaceText(newNode);
+
+        let calendarGroups = document.querySelectorAll("[role='listbox']");
+        if (calendarGroups.length > 0) {
+          for (let i = 0; i < calendarGroups.length; i++) {
+            sortCalendarGroup(calendarGroups.item(i));
+          }
+          sorted = true;
+        }
       }
     }
   });
